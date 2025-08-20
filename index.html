@@ -3,145 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name</title>
-  <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: url("bg.png") no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 400px;
-      width: 90%;
-      backdrop-filter: blur(10px);
-      background: rgba(0, 0, 0, 0.5);
-      padding: 2rem;
-      border-radius: 15px;
-      animation: fadeIn 1.5s ease forwards;
-    }
-
-    .profile-pic {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      border: 3px solid #fff;
-      box-shadow: 0 0 20px #4CAF50;
-      animation: glowPulse 3s infinite alternate;
-    }
-
-    h1 {
-      margin: 0.5rem 0;
-      font-size: 1.8rem;
-      animation: fadeUp 1s ease forwards;
-    }
-
-    p {
-      margin-bottom: 2rem;
-      font-size: 1rem;
-      color: #ccc;
-      animation: fadeUp 1.5s ease forwards;
-    }
-
-    .links a {
-      display: block;
-      background: #1a1a1a;
-      color: #fff;
-      text-decoration: none;
-      padding: 1rem;
-      margin: 0.5rem 0;
-      border-radius: 8px;
-      font-weight: bold;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-      animation: fadeUp 2s ease forwards;
-    }
-
-    .links a::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, #4CAF50, #00ffcc, #4CAF50);
-      transform: rotate(45deg);
-      opacity: 0;
-      transition: opacity 0.3s;
-      z-index: 0;
-    }
-
-    .links a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #00ffcc, 0 0 40px #4CAF50;
-    }
-
-    .links a:hover::before {
-      opacity: 0.2;
-    }
-
-    .links a span {
-      position: relative;
-      z-index: 1;
-    }
-
-    footer {
-      margin-top: 2rem;
-      font-size: 0.8rem;
-      color: #aaa;
-      animation: fadeUp 2.5s ease forwards;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes glowPulse {
-      from { box-shadow: 0 0 10px #4CAF50; }
-      to { box-shadow: 0 0 25px #00ffcc; }
-    }
-  </style>
+  <title>Oblyc Bio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <img src="your-photo.jpg" alt="Your Name" class="profile-pic">
-    <h1>Your Name</h1>
-    <p>✨ Creator • Developer • Dreamer ✨</p>
+  <!-- Intro screen -->
+  <div id="intro">
+    <h1 id="intro-text">w g a t y o u d o i n g h e r e =D???</h1>
+    <p id="ip">[loading IP...]</p>
+  </div>
 
-    <div class="links">
-      <a href="https://twitter.com/"><span>Twitter</span></a>
-      <a href="https://instagram.com/"><span>Instagram</span></a>
-      <a href="https://github.com/"><span>GitHub</span></a>
-      <a href="mailto:you@example.com"><span>Email Me</span></a>
+  <!-- Main content -->
+  <div id="main" class="hidden">
+    <div class="blur-box">
+      <img src="pfp.jpg" alt="Avatar" class="avatar">
+      <h2 class="nickname">Oblyc</h2>
+      <p class="bio" id="bio-text"></p>
+      <div class="links">
+        <!-- ВСТАВЬ СВОИ ССЫЛКИ В href="" -->
+        <a href="YOUR_DISCORD_LINK" class="btn"><img src="icons/discord.svg" alt="Discord"></a>
+        <a href="YOUR_TELEGRAM_LINK" class="btn"><img src="icons/telegram.svg" alt="Telegram"></a>
+        <a href="YOUR_WEBSITE_LINK" class="btn"><img src="icons/web.svg" alt="Website"></a>
+        <a href="YOUR_INSTAGRAM_LINK" class="btn"><img src="icons/instagram.svg" alt="Instagram"></a>
+      </div>
     </div>
 
-    <footer>
-      <p>&copy; 2025 Your Name</p>
-    </footer>
+    <!-- Music toggle -->
+    <div class="music-toggle">
+      <button id="music-btn">🎵</button>
+    </div>
+
+    <!-- Background music -->
+    <audio id="bg-music" loop>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
