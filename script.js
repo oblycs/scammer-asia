@@ -1,25 +1,44 @@
-// IP fetch
-fetch("https://api.ipify.org?format=json")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("ip").textContent = `[ ${data.ip} ]`;
-  });
+// --- Эффект печатания ---
+const text = `⚡ Welcome to FFlag Master ⚡
+Truth. Power. Innovation.
+Level 999 | Hacker Mode ON`;
 
-// Click to enter
-document.addEventListener("click", () => {
-  document.getElementById("intro").style.display = "none";
-  document.getElementById("main").classList.remove("hidden");
-});
-
-// Typing effect for bio
-const bioText = `FFlag Master Op Cool 777 Godlike Truth Not Lie good fantastic real /gamemode 1 level 999 cheater bloxstrap IT hacking super mega smoker .`;
-const bioElement = document.getElementById("bio-text");
+const element = document.getElementById("typewriter");
 let i = 0;
-let forward = true;
+let isDeleting = false;
 
-function typeWriter() {
-  if (forward) {
-    bioElement.textContent = bioText.substring(0, i);
+function typeEffect() {
+  if (!isDeleting) {
+    const char = text.charAt(i);
+    element.innerHTML = text.substring(0, i)
+      + `<span class="glow">${char}</span>`;
     i++;
-    if (i > bioText.length) {
-      forward = false;
+    if (i === text.length) {
+      setTimeout(() => { isDeleting = true; }, 2000);
+    }
+  } else {
+    element.textContent = text.substring(0, i - 1);
+    i--;
+    if (i === 0) {
+      isDeleting = false;
+    }
+  }
+  const speed = isDeleting ? 40 : 70;
+  setTimeout(typeEffect, speed);
+}
+typeEffect();
+
+// --- Музыка: вкл/выкл ---
+const music = document.getElementById("bg-music");
+const musicToggle = document.getElementById("music-toggle");
+const musicIcon = musicToggle.querySelector("i");
+
+musicToggle.addEventListener("click", () => {
+  if (music.paused) {
+    music.play();
+    musicIcon.classList.replace("fa-volume-mute", "fa-volume-up");
+  } else {
+    music.pause();
+    musicIcon.classList.replace("fa-volume-up", "fa-volume-mute");
+  }
+});
