@@ -1,40 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FFlag Master</title>
+  <title>Oblyc</title>
+  <!-- Новый шрифт для био -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <!-- Кнопка музыки в правом верхнем углу -->
+  <button id="music-toggle" title="Включить/Выключить музыку">
+    <img src="images/logo.png" alt="Logo" class="logo">
+    <i class="fa-solid fa-music"></i>
+  </button>
+
+  <div class="profile">
+    <div class="avatar"></div>
+    <h1>Oblyc</h1>
+  </div>
+
+  <div class="bio" id="bio-box">
+    <span id="typewriter"></span><span class="cursor">|</span>
+  </div>
+
+  <div class="links">
+    <a class="icon-btn" href="https://discord.com" target="_blank" data-tooltip="Discord">
+      <i class="fa-brands fa-discord"></i>
+    </a>
+    <a class="icon-btn" href="https://t.me" target="_blank" data-tooltip="Telegram">
+      <i class="fa-brands fa-telegram"></i>
+    </a>
+    <a class="icon-btn" href="https://spotify.com" target="_blank" data-tooltip="Spotify">
+      <i class="fa-brands fa-spotify"></i>
+    </a>
+    <a class="icon-btn" href="https://instagram.com" target="_blank" data-tooltip="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+  </div>
 
   <!-- Музыка -->
-  <audio id="bg-music" autoplay loop>
-    <source src="images/music.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Хедер -->
-  <header>
-    <div class="logo">⚡ FFlag</div>
-    <button id="music-toggle" class="music-btn">
-      <i class="fas fa-volume-up"></i>
-    </button>
-  </header>
-
-  <!-- Основной контент -->
-  <main>
-    <div class="profile">
-      <img src="images/pfp.jpg" alt="Profile" class="avatar">
-      <h1 class="bio-text" id="typewriter"></h1>
-      <div class="socials">
-        <a href="https://discord.com" class="social-btn" title="Discord"><i class="fab fa-discord"></i></a>
-        <a href="https://t.me" class="social-btn" title="Telegram"><i class="fab fa-telegram"></i></a>
-        <a href="https://github.com" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
-      </div>
-    </div>
-  </main>
+  <audio id="bg-music" src="images/music.mp3" loop></audio>
 
   <script src="script.js"></script>
 </body>
