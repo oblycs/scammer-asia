@@ -1,44 +1,63 @@
-// --- Эффект печатания ---
-const text = `⚡ Welcome to FFlag Master ⚡
-Truth. Power. Innovation.
-Level 999 | Hacker Mode ON`;
+// --- Эффект печатания текста с радужным свечением ---
+const text = `FFlag Master Op Cool 777 Godlike Truth Not Lie
+Good, fantastic, real /gamemode 1 level 999
+Cheater, bloxstrap, IT hacking, super mega smoker`;
 
 const element = document.getElementById("typewriter");
 let i = 0;
 let isDeleting = false;
 
+const colors = ["#ff0000","#ff7f00","#ffff00","#00ff00","#00ffff","#0000ff","#8b00ff"];
+
 function typeEffect() {
   if (!isDeleting) {
     const char = text.charAt(i);
+    const color = colors[i % colors.length];
     element.innerHTML = text.substring(0, i)
-      + `<span class="glow">${char}</span>`;
+      + `<span class="glow" style="color:${color}">${char}</span>`;
     i++;
-    if (i === text.length) {
-      setTimeout(() => { isDeleting = true; }, 2000);
-    }
+    if (i === text.length) setTimeout(() => { isDeleting = true; }, 1500);
   } else {
     element.textContent = text.substring(0, i - 1);
     i--;
-    if (i === 0) {
-      isDeleting = false;
-    }
+    if (i === 0) isDeleting = false;
   }
-  const speed = isDeleting ? 40 : 70;
+  const speed = isDeleting ? 50 : 80;
   setTimeout(typeEffect, speed);
 }
 typeEffect();
 
-// --- Музыка: вкл/выкл ---
+// --- Эффект наклона био ---
+const bioBox = document.getElementById("bio-box");
+bioBox.addEventListener("mousemove", e => {
+  const rect = bioBox.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const rotateX = ((y - rect.height/2) / (rect.height/2)) * 8;
+  const rotateY = ((x - rect.width/2) / (rect.width/2)) * -8;
+  bioBox.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+});
+bioBox.addEventListener("mouseleave", () => {
+  bioBox.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+});
+
+// --- Анимация появления ---
+window.addEventListener("load", () => { document.body.classList.add("loaded"); });
+
+// --- Музыка ---
 const music = document.getElementById("bg-music");
 const musicToggle = document.getElementById("music-toggle");
-const musicIcon = musicToggle.querySelector("i");
+let isPlaying = false;
 
 musicToggle.addEventListener("click", () => {
-  if (music.paused) {
-    music.play();
-    musicIcon.classList.replace("fa-volume-mute", "fa-volume-up");
-  } else {
+  if (isPlaying) {
     music.pause();
-    musicIcon.classList.replace("fa-volume-up", "fa-volume-mute");
+    isPlaying = false;
+    musicToggle.style.transform = "rotate(0deg)";
+  } else {
+    music.play();
+    isPlaying = true;
+    musicToggle.style.transform = "rotate(20deg)";
+    setTimeout(()=>{musicToggle.style.transform="rotate(0deg)";},300);
   }
 });
