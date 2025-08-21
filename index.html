@@ -4,18 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oblyc</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Стартовый экран -->
+  <div id="intro-screen">
+    <h1>WHAT YOU DOING HERE ???</h1>
+    <p>[ click anywhere :D ]</p>
+  </div>
+
   <!-- Кнопка музыки -->
   <button id="music-toggle" title="Включить/Выключить музыку"></button>
 
   <!-- Квадратик с аватаром и ником -->
-  <div class="profile">
+  <div class="profile" id="profile-box">
     <div class="avatar"></div>
-    <h1>Oblyc</h1>
+    <h1 id="username">Oblyc</h1>
   </div>
 
   <!-- Квадратик с адресом -->
