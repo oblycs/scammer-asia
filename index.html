@@ -3,41 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oblyc Bio</title>
+  <title>FFlag Master</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <!-- Intro screen -->
-  <div id="intro">
-    <h1 id="intro-text">w g a t y o u d o i n g h e r e =D???</h1>
-    <p id="ip">[loading IP...]</p>
-  </div>
 
-  <!-- Main content -->
-  <div id="main" class="hidden">
-    <div class="blur-box">
-      <img src="pfp.jpg" alt="Avatar" class="avatar">
-      <h2 class="nickname">Oblyc</h2>
-      <p class="bio" id="bio-text"></p>
-      <div class="links">
-        <!-- ВСТАВЬ СВОИ ССЫЛКИ В href="" -->
-        <a href="YOUR_DISCORD_LINK" class="btn"><img src="icons/discord.svg" alt="Discord"></a>
-        <a href="YOUR_TELEGRAM_LINK" class="btn"><img src="icons/telegram.svg" alt="Telegram"></a>
-        <a href="YOUR_WEBSITE_LINK" class="btn"><img src="icons/web.svg" alt="Website"></a>
-        <a href="YOUR_INSTAGRAM_LINK" class="btn"><img src="icons/instagram.svg" alt="Instagram"></a>
+  <!-- Музыка -->
+  <audio id="bg-music" autoplay loop>
+    <source src="images/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Хедер -->
+  <header>
+    <div class="logo">⚡ FFlag</div>
+    <button id="music-toggle" class="music-btn">
+      <i class="fas fa-volume-up"></i>
+    </button>
+  </header>
+
+  <!-- Основной контент -->
+  <main>
+    <div class="profile">
+      <img src="images/pfp.jpg" alt="Profile" class="avatar">
+      <h1 class="bio-text" id="typewriter"></h1>
+      <div class="socials">
+        <a href="https://discord.com" class="social-btn" title="Discord"><i class="fab fa-discord"></i></a>
+        <a href="https://t.me" class="social-btn" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://github.com" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
       </div>
     </div>
-
-    <!-- Music toggle -->
-    <div class="music-toggle">
-      <button id="music-btn">🎵</button>
-    </div>
-
-    <!-- Background music -->
-    <audio id="bg-music" loop>
-      <source src="music.mp3" type="audio/mpeg">
-    </audio>
-  </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
