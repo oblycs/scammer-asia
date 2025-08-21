@@ -1,4 +1,17 @@
-// --- Эффект печатания текста с радужным свечением ---
+// --- Эффект стартового экрана ---
+const introScreen = document.getElementById('intro-screen');
+const bgMusic = document.getElementById('bg-music');
+
+function hideIntro() {
+  introScreen.style.opacity = '0';
+  setTimeout(() => { introScreen.style.display = 'none'; document.body.classList.add('loaded'); }, 1000);
+  bgMusic.play(); // музыка включается при заходе на основной сайт
+}
+
+introScreen.addEventListener('click', hideIntro);
+introScreen.addEventListener('touchstart', hideIntro);
+
+// --- Эффект печатания текста ---
 const text = `FFlag Master Op Cool 777 Godlike Truth Not Lie
 Good, fantastic, real /gamemode 1 level 999
 Cheater, bloxstrap, IT hacking, super mega smoker`;
@@ -36,27 +49,35 @@ bioBox.addEventListener("mousemove",e=>{
 });
 bioBox.addEventListener("mouseleave",()=>{bioBox.style.transform="rotateX(0deg) rotateY(0deg) scale(1)";});
 
-// --- Анимация появления ---
-window.addEventListener("load",()=>{document.body.classList.add("loaded");});
-
 // --- Музыка с двумя состояниями кнопки ---
-const music=document.getElementById("bg-music");
 const musicToggle=document.getElementById("music-toggle");
 let isPlaying=false;
 musicToggle.classList.add('paused');
 musicToggle.innerHTML='<i class="fa-solid fa-volume-xmark"></i>';
 musicToggle.addEventListener("click",()=>{
   if(isPlaying){
-    music.pause();
+    bgMusic.pause();
     isPlaying=false;
-    musicToggle.classList.remove('playing');
-    musicToggle.classList.add('paused');
+    musicToggle.classList.remove('playing'); musicToggle.classList.add('paused');
     musicToggle.innerHTML='<i class="fa-solid fa-volume-xmark"></i>';
   }else{
-    music.play();
+    bgMusic.play();
     isPlaying=true;
-    musicToggle.classList.remove('paused');
-    musicToggle.classList.add('playing');
+    musicToggle.classList.remove('paused'); musicToggle.classList.add('playing');
     musicToggle.innerHTML='<i class="fa-solid fa-volume-high"></i>';
   }
+});
+
+// --- Меняем ник Oblyc <-> god ---
+const username = document.getElementById('username');
+const profileBox = document.getElementById('profile-box');
+let isGod = false;
+
+profileBox.addEventListener('click', () => {
+  isGod = !isGod;
+  username.style.opacity = 0;
+  setTimeout(() => {
+    username.textContent = isGod ? 'god' : 'Oblyc';
+    username.style.opacity = 1;
+  }, 300);
 });
