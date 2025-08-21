@@ -6,7 +6,6 @@ Cheater, bloxstrap, IT hacking, super mega smoker`;
 const element = document.getElementById("typewriter");
 let i = 0;
 let isDeleting = false;
-
 const colors = ["#ff0000","#ff7f00","#ffff00","#00ff00","#00ffff","#0000ff","#8b00ff"];
 
 function typeEffect() {
@@ -44,20 +43,26 @@ bioBox.addEventListener("mouseleave", () => {
 // --- Анимация появления ---
 window.addEventListener("load", () => { document.body.classList.add("loaded"); });
 
-// --- Музыка ---
+// --- Музыка с двумя состояниями кнопки ---
 const music = document.getElementById("bg-music");
 const musicToggle = document.getElementById("music-toggle");
 let isPlaying = false;
+
+musicToggle.classList.add('paused');
+musicToggle.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
 
 musicToggle.addEventListener("click", () => {
   if (isPlaying) {
     music.pause();
     isPlaying = false;
-    musicToggle.style.transform = "rotate(0deg)";
+    musicToggle.classList.remove('playing');
+    musicToggle.classList.add('paused');
+    musicToggle.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
   } else {
     music.play();
     isPlaying = true;
-    musicToggle.style.transform = "rotate(20deg)";
-    setTimeout(()=>{musicToggle.style.transform="rotate(0deg)";},300);
+    musicToggle.classList.remove('paused');
+    musicToggle.classList.add('playing');
+    musicToggle.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
   }
 });
